@@ -13,6 +13,13 @@ def exibirMenu():
     print("4. Excluir tarefa")
     print("5. Salvar e sair")
 
+def simOuNao(mensagem: str) -> str:
+    while True:
+        resposta = input(mensagem).strip().lower()
+        if resposta in ["sim", "nao"]:
+            return resposta
+        print("\nERRO! Resposta inválida! Digite apenas 'sim' ou 'nao'!!!")
+
 if __name__ == "__main__":
     gerenciador = GerenciadorTarefas()
     gerenciador.carregarEmArquivo()
@@ -43,8 +50,9 @@ if __name__ == "__main__":
                 gerenciador.listarTarefas()
 
             case 3:
-                opc = input("Deseja conferir a lista de tarefas pendentes? [sim/nao] ").lower()
+                opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
+                    print()
                     gerenciador.listarTarefasNaoConcluidas()
 
                 try:
@@ -59,7 +67,7 @@ if __name__ == "__main__":
                     print(f"Tarefa {tarefaRetornada.titulo} marcada como concluída")
 
             case 4:
-                opc = input("Deseja conferir a lista de tarefas pendentes? [sim/nao] ").lower()
+                opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
                     gerenciador.listarTarefasNaoConcluidas()
 
