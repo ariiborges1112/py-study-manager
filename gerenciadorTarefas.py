@@ -7,7 +7,7 @@ class GerenciadorTarefas:
 
     def adicionarTarefa(self, tarefa):
         self.tarefas.append(tarefa)
-        print(f"Tarefa '{tarefa.titulo}' adicionada com sucesso!")
+        print(f"\nA Tarefa '{tarefa.titulo}' adicionada com sucesso!")
 
     def listarTarefas(self):
         if not self.tarefas:
