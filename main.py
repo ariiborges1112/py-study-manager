@@ -1,17 +1,25 @@
+import os
 from tarefa import Tarefa
 from gerenciadorTarefas import GerenciadorTarefas
+
+def limparTela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def exibirMenu():
+    print("\n==== GERENCIADOR DE TAREFAS ====\n")
+    print("1. Adicionar nova tarefa")
+    print("2. Listar todas as tarefas")
+    print("3. Marcar tarefa como concluída")
+    print("4. Excluir tarefa")
+    print("5. Salvar e sair")
 
 if __name__ == "__main__":
     gerenciador = GerenciadorTarefas()
     gerenciador.carregarEmArquivo()
 
     while True:
-        print("\n==== GERENCIADOR DE TAREFAS ====\n")
-        print("1. Adicionar nova tarefa")
-        print("2. Listar todas as tarefas")
-        print("3. Marcar tarefa como concluída")
-        print("4. Excluir tarefa")
-        print("5. Salvar e sair")
+        limparTela()
+        exibirMenu()
 
         try:
             opcaoDoUsuario = int(input("Digite a opção desejada: "))
