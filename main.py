@@ -30,8 +30,6 @@ if __name__ == "__main__":
                 tarefa = Tarefa(titulo, descricao)
                 gerenciador.adicionarTarefa(tarefa)
 
-                print(f"Tarefa {tarefa.titulo} adicionada com sucesso!")
-
             case 2:
                 print("Listando todas as tarefas...\n")
                 gerenciador.listarTarefas()
