@@ -12,7 +12,6 @@ class Tarefa:
 
     def concluir(self):
         self.concluida = True
-        print(f"A tarefa {self.titulo} foi concluída com êxito")
 
     def __str__(self):
         status = "+" if self.concluida else " "
