@@ -1,4 +1,5 @@
 import os
+import time
 from tarefa import Tarefa
 from gerenciadorTarefas import GerenciadorTarefas
 
@@ -44,11 +45,13 @@ if __name__ == "__main__":
 
                 tarefa = Tarefa(titulo, descricao)
                 gerenciador.adicionarTarefa(tarefa)
+                input("\nPressione Enter para continuar...")
 
             case 2:
                 print("Listando todas as tarefas...\n")
                 gerenciador.listarTarefas()
-
+                input("Pressione Enter para continuar...")
+                
             case 3:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
@@ -56,7 +59,7 @@ if __name__ == "__main__":
                     gerenciador.listarTarefasNaoConcluidas()
 
                 try:
-                    indice = int(input("Qual tarefa deseja marcar como concluída? (de acordo com seu índice)\n"))
+                    indice = int(input("Qual tarefa deseja marcar como concluída? [de acordo com seu índice]: "))
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
@@ -64,7 +67,8 @@ if __name__ == "__main__":
 
                 tarefaRetornada = gerenciador.concluirTarefaViaIndice(indice - 1)
                 if tarefaRetornada:
-                    print(f"Tarefa {tarefaRetornada.titulo} marcada como concluída")
+                    print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída")
+                    input("\nPressione Enter para continuar...")
 
             case 4:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
@@ -72,7 +76,7 @@ if __name__ == "__main__":
                     gerenciador.listarTarefasNaoConcluidas()
 
                 try:
-                    indice = int(input("Qual tarefa deseja excluir? (de acordo com seu índice)\n"))
+                    indice = int(input("Qual tarefa deseja excluir? [de acordo com seu índice]: "))
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
@@ -81,11 +85,13 @@ if __name__ == "__main__":
                 tarefaRetornada = gerenciador.removerTarefa(indice - 1)
 
                 if tarefaRetornada:
-                    print(f"Tarefa {tarefaRetornada.titulo} foi removida com sucesso!")
+                    print(f"\nA Tarefa {tarefaRetornada.titulo} foi removida com sucesso!")
+                    input("\nPressione Enter para continuar...")
 
             case 5:
-                print("Salvando e saindo do programa...")
+                print("\nSalvando e saindo do programa...")
                 gerenciador.salvarEmArquivo()
+                time.sleep(2)
                 break
 
             case _:
