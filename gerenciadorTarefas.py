@@ -18,13 +18,34 @@ class GerenciadorTarefas:
         for i, tarefa in enumerate(self.tarefas, start=1):
             print(f"Tarefa {i}:\n{tarefa}\n")
 
+    def listarTarefasConcluidas(self):
+        if not self.tarefas:
+            print("A lista de tarefas está vazia")
+            return
+
+        temConcluidas = False
+
+        print("\n==== TAREFAS CONCLUÍDAS ====")
+        for i, tarefa in enumerate(self.tarefas, start=1):
+            if tarefa.concluida:
+                temConcluidas = True
+                print(f"ID da Tarefa: [{i}]")
+                print(f"{tarefa.titulo}")
+                print(f"{tarefa.descricao}\n")
+
+        if not temConcluidas:
+            print("Não há tarefas concluídas!")
+            return
+
     def listarTarefasNaoConcluidas(self):
         if not self.tarefas:
             print("A lista de tarefas está vazia")
             return
 
         temPendencias = False
-        
+
+
+        print("\n==== TAREFAS NÃO CONCLUÍDAS ====")
         for i, tarefa in enumerate(self.tarefas, start=1):
             if not tarefa.concluida:
                 temPendencias = True
