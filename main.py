@@ -35,7 +35,7 @@ if __name__ == "__main__":
                 print("\nDigite alguns dados sobre a tarefa que deseja adicionar")
 
                 titulo = input("\nDigite o titulo da tarefa: ")
-                descricao = input("\nDigite a descrição da tarefa: ")
+                descricao = input("Digite a descrição da tarefa: ")
 
                 tarefa = Tarefa(titulo, descricao)
                 gerenciador.adicionarTarefa(tarefa)
@@ -140,7 +140,7 @@ if __name__ == "__main__":
                 input("\nPressione Enter para continuar...")
 
             case 6:
-                print("\nSalvando e saindo do programa...")
+                print("\nSalvando e saindo do programa...\n")
                 gerenciador.salvarEmArquivo()
                 time.sleep(2)
                 break
