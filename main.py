@@ -11,8 +11,9 @@ def exibirMenu():
     print("1. Adicionar nova tarefa")
     print("2. Listar todas as tarefas")
     print("3. Marcar tarefa como concluída")
-    print("4. Excluir tarefa")
-    print("5. Salvar e sair")
+    print("4. Marcar tarefa como Pendente")
+    print("5. Excluir tarefa")
+    print("6. Salvar e sair")
 
 def simOuNao(mensagem: str) -> str:
     while True:
@@ -63,12 +64,15 @@ if __name__ == "__main__":
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
+                    input("\nPressione Enter para continuar...")                    
                     continue
 
                 tarefaRetornada = gerenciador.concluirTarefaViaIndice(indice - 1)
+
                 if tarefaRetornada:
                     print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída")
-                    input("\nPressione Enter para continuar...")
+                
+                input("\nPressione Enter para continuar...")
 
             case 4:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
@@ -80,6 +84,7 @@ if __name__ == "__main__":
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
+                    input("\nPressione Enter para continuar...")
                     continue
 
                 tarefaRetornada = gerenciador.removerTarefa(indice - 1)
