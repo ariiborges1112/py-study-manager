@@ -10,11 +10,11 @@ class Tarefa:
         else:
             print(f"A tarefa {self.titulo} não está concluída")
 
-    def alternarStatus(self):
-        if not self.concluida:
-            self.concluida = False
-        else:
-            self.concluida = True
+    def marcarComoConcluido(self):
+        self.concluida = True
+
+    def marcarComoPendente(self):
+        self.concluida = False
 
     def __str__(self):
         status = "+" if self.concluida else " "
