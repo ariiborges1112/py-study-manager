@@ -23,9 +23,9 @@ class Tarefa:
 
     def __str__(self):
         status = "+" if self.concluida else " "
-        infoData = f"(Concluída em: {self.dataConclusao})" if self.concluida else ""
+        infoData = f" | Concluída em: {self.dataConclusao}" if self.concluida else ""
         return (
-            f"[{status}] {self.titulo} | {infoData}\n"
+            f"[{status}] {self.titulo}{infoData}\n"
             f"    Descrição: {self.descricao}"
         )
 
