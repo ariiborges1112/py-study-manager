@@ -34,7 +34,7 @@ if __name__ == "__main__":
             opcaoDoUsuario = int(input("Digite a opção desejada: "))
         except ValueError:
             print("\nERRO, não é permido letras ou caracteres especiais!!!")
-            print("Por favor, digite um número de 1 a 5")
+            print("Por favor, digite um número de 1 a 6")
             continue
 
         match opcaoDoUsuario:
@@ -49,18 +49,17 @@ if __name__ == "__main__":
                 input("\nPressione Enter para continuar...")
 
             case 2:
-                print("Listando todas as tarefas...\n")
+                print("\nListando todas as tarefas...")
                 gerenciador.listarTarefas()
                 input("Pressione Enter para continuar...")
                 
             case 3:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
-                    print()
                     gerenciador.listarTarefasNaoConcluidas()
 
                 try:
-                    indice = int(input("Qual tarefa deseja marcar como concluída? [de acordo com seu índice]: "))
+                    indice = int(input("Qual tarefa deseja marcar como CONCLUÍDA? [de acordo com seu ID]: "))
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
@@ -71,10 +70,30 @@ if __name__ == "__main__":
 
                 if tarefaRetornada:
                     print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída")
-                
+
                 input("\nPressione Enter para continuar...")
 
             case 4:
+                opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
+                if opc == "sim":
+                    gerenciador.listarTarefasConcluidas()
+
+                try:
+                    indice = int(input("Qual tarefa deseja DESMARCAR (tornar pendente)? [de acordo com seu ID]: "))
+                except ValueError:
+                    print("\nERRO, não é permido letras ou caracteres especiais!!!")
+                    print("Por favor, digite apenas o número da tarefa")
+                    input("\nPressione Enter para continuar...")                    
+                    continue
+
+                tarefaRetornada = gerenciador.desmarcarTarefaViaIndice(indice - 1)
+
+                if tarefaRetornada:
+                    print(f"\nA tarefa {tarefaRetornada.titulo} voltou a ficar pendente!")
+
+                input("\nPressione Enter para continuar...")                
+
+            case 5:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
                     gerenciador.listarTarefasNaoConcluidas()
@@ -93,12 +112,12 @@ if __name__ == "__main__":
                     print(f"\nA Tarefa {tarefaRetornada.titulo} foi removida com sucesso!")
                     input("\nPressione Enter para continuar...")
 
-            case 5:
+            case 6:
                 print("\nSalvando e saindo do programa...")
                 gerenciador.salvarEmArquivo()
                 time.sleep(2)
                 break
 
             case _:
-                print("ERRO! Só é permitidos números inteiros entre 1 a 5")
+                print("ERRO! Só é permitidos números inteiros entre 1 a 6")
                 print("Digite novamente!")
