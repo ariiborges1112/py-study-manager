@@ -100,10 +100,10 @@ if __name__ == "__main__":
             case 5:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
-                    gerenciador.listarTarefasNaoConcluidas()
+                    gerenciador.listarTarefas()
                 else:
                     print()
-                    
+
                 try:
                     indice = int(input("Qual tarefa deseja excluir? [de acordo com seu índice]: "))
                 except ValueError:
