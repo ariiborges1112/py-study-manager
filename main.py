@@ -73,7 +73,7 @@ if __name__ == "__main__":
                 tarefaRetornada = gerenciador.concluirTarefaViaIndice(indice - 1)
 
                 if tarefaRetornada:
-                    print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída")
+                    print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída em {tarefaRetornada.dataConclusao}")
 
                 input("\nPressione Enter para continuar...")
 
