@@ -7,12 +7,6 @@ class Tarefa:
         self.concluida = False
         self.dataConclusao = None
 
-    def estaConcluida(self):
-        if self.concluida:
-            print(f"A tarefa {self.titulo} já está concluída")
-        else:
-            print(f"A tarefa {self.titulo} não está concluída")
-
     def marcarComoConcluido(self):
         self.concluida = True
         self.dataConclusao = datetime.now().strftime("%d/%m/%Y às %H:%M")
