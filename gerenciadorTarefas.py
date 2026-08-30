@@ -11,7 +11,7 @@ class GerenciadorTarefas:
 
     def listarTarefas(self):
         if not self.tarefas:
-            print("A lista de tarefas está vazia")
+            print("\nA lista de tarefas está vazia\n")
             return
     
         print("\n==== LISTA DE TAREFAS ====")
@@ -20,7 +20,7 @@ class GerenciadorTarefas:
 
     def listarTarefasConcluidas(self):
         if not self.tarefas:
-            print("A lista de tarefas está vazia")
+            print("\nA lista de tarefas está vazia\n")
             return
 
         temConcluidas = False
@@ -39,7 +39,7 @@ class GerenciadorTarefas:
 
     def listarTarefasNaoConcluidas(self):
         if not self.tarefas:
-            print("A lista de tarefas está vazia")
+            print("\nA lista de tarefas está vazia\n")
             return
 
         temPendencias = False
