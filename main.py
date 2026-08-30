@@ -42,6 +42,11 @@ if __name__ == "__main__":
                 input("\nPressione Enter para continuar...")
 
             case 2:
+                if gerenciador.estaVazio():
+                    print("\nA lista de tarefas está vazia!")
+                    input("\nPressione Enter para continuar...")
+                    continue
+
                 print("\nListando todas as tarefas...")
                 gerenciador.listarTarefas()
                 input("Pressione Enter para continuar...")
