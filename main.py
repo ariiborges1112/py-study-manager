@@ -35,7 +35,7 @@ if __name__ == "__main__":
         try:
             opcaoDoUsuario = int(input("Digite a opção desejada: "))
         except ValueError:
-            print("\nERRO!!! Não é permido letras ou caracteres especiais!!!")
+            print("\nERRO!!! Não é permitido letras ou caracteres especiais!!!")
             print("Por favor, digite um número de 1 a 6")
             continue
 
