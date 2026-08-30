@@ -18,8 +18,10 @@ def exibirMenu():
 def simOuNao(mensagem: str) -> str:
     while True:
         resposta = input(mensagem).strip().lower()
-        if resposta in ["sim", "nao", "s", "n"]:
-            return resposta
+        if resposta in ["sim", "ss", "s"]:
+            return "sim"
+        if resposta in ["nao", "nn", "n"]:
+            return "nao"
         print("\nERRO! Resposta inválida! Digite apenas 'sim' ou 'nao'!!!")
 
 if __name__ == "__main__":
@@ -55,7 +57,7 @@ if __name__ == "__main__":
                 
             case 3:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
-                if opc in ["sim", "s"]:
+                if opc == "sim":
                     gerenciador.listarTarefasNaoConcluidas()
                 else:
                     print()
@@ -77,7 +79,7 @@ if __name__ == "__main__":
 
             case 4:
                 opc = simOuNao("\nDeseja conferir a lista de tarefas concluídas? [sim/nao]: ")
-                if opc in ["sim", "s"]:
+                if opc == "sim":
                     gerenciador.listarTarefasConcluidas()
                 else:
                     print()
@@ -99,7 +101,7 @@ if __name__ == "__main__":
 
             case 5:
                 opc = simOuNao("\nDeseja conferir a lista completa de tarefas? [sim/nao]: ")
-                if opc in ["sim", "s"]:
+                if opc == "sim":
                     gerenciador.listarTarefas()
                 else:
                     print()
@@ -135,7 +137,7 @@ if __name__ == "__main__":
                     if removidas > 0:
                         print(f"\nSucesso! {removidas} tarefa(s) concluída(s) removida(s)")
                     else:
-                        print(f"\nNão há tarefas concluídas para remover")
+                        print("\nNão há tarefas concluídas para remover")
 
                 else:
                     print("\nERRO!!! Opção inválida!")
