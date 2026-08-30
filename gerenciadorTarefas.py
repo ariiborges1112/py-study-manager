@@ -86,6 +86,19 @@ class GerenciadorTarefas:
 
         return tarefaRemovida
 
+    def removerTarefasConcluidas(self):
+        tarefasPendentes = []
+
+        for tarefa in self.tarefas:
+            if not tarefa.concluida:
+                tarefasPendentes.append(tarefa)
+
+        totalRemovidas = len(self.tarefas) - len(tarefasPendentes)
+        self.tarefas = tarefasPendentes
+
+        return totalRemovidas
+
+
     def salvarEmArquivo(self, caminhoArquivo="tarefas.json"):
         listaTraduzida = []
         for tarefa in self.tarefas:
