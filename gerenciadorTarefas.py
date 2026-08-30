@@ -59,7 +59,7 @@ class GerenciadorTarefas:
 
     def concluirTarefaViaIndice(self, indice):
         if indice < 0 or indice >= len(self.tarefas):
-            print("O valor do índice está incorreto")
+            print("\nO valor do índice está INCORRETO!")
             return
 
         tarefa = self.tarefas[indice]
@@ -69,7 +69,7 @@ class GerenciadorTarefas:
 
     def desmarcarTarefaViaIndice(self, indice):
         if indice < 0 or indice >= len(self.tarefas):
-            print("O valor do índice está incorreto")
+            print("\nO valor do índice está INCORRETO!")
             return
     
         tarefa = self.tarefas[indice]
@@ -79,7 +79,7 @@ class GerenciadorTarefas:
     
     def removerTarefa(self, indice):
         if indice < 0 or indice >= len(self.tarefas):
-            print("O valor do índice está incorreto")
+            print("\nO valor do índice está INCORRETO!")
             return
             
         tarefaRemovida = self.tarefas.pop(indice)
