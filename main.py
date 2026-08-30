@@ -57,9 +57,11 @@ if __name__ == "__main__":
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
                     gerenciador.listarTarefasNaoConcluidas()
+                else:
+                    print()
 
                 try:
-                    indice = int(input("Qual tarefa deseja marcar como CONCLUÍDA? [de acordo com seu ID]: "))
+                    indice = int(input("\nQual tarefa deseja marcar como CONCLUÍDA? [de acordo com seu ID]: "))
                 except ValueError:
                     print("\nERRO, não é permido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
@@ -69,14 +71,16 @@ if __name__ == "__main__":
                 tarefaRetornada = gerenciador.concluirTarefaViaIndice(indice - 1)
 
                 if tarefaRetornada:
-                    print(f"\nA tarefa {tarefaRetornada.titulo} foi marcada como concluída")
+                    print(f"A tarefa {tarefaRetornada.titulo} foi marcada como concluída")
 
                 input("\nPressione Enter para continuar...")
 
             case 4:
-                opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
+                opc = simOuNao("\nDeseja conferir a lista de tarefas concluídas? [sim/nao]: ")
                 if opc == "sim":
                     gerenciador.listarTarefasConcluidas()
+                else:
+                    print()
 
                 try:
                     indice = int(input("Qual tarefa deseja DESMARCAR (tornar pendente)? [de acordo com seu ID]: "))
@@ -89,7 +93,7 @@ if __name__ == "__main__":
                 tarefaRetornada = gerenciador.desmarcarTarefaViaIndice(indice - 1)
 
                 if tarefaRetornada:
-                    print(f"\nA tarefa {tarefaRetornada.titulo} voltou a ficar pendente!")
+                    print(f"A tarefa {tarefaRetornada.titulo} voltou a ficar pendente!")
 
                 input("\nPressione Enter para continuar...")                
 
@@ -97,7 +101,9 @@ if __name__ == "__main__":
                 opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
                 if opc == "sim":
                     gerenciador.listarTarefasNaoConcluidas()
-
+                else:
+                    print()
+                    
                 try:
                     indice = int(input("Qual tarefa deseja excluir? [de acordo com seu índice]: "))
                 except ValueError:
