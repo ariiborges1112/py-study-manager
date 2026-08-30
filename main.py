@@ -15,15 +15,6 @@ def exibirMenu():
     print("5. Excluir tarefa")
     print("6. Salvar e sair")
 
-def simOuNao(mensagem: str) -> str:
-    while True:
-        resposta = input(mensagem).strip().lower()
-        if resposta in ["sim", "ss", "s"]:
-            return "sim"
-        if resposta in ["nao", "nn", "n"]:
-            return "nao"
-        print("\nERRO! Resposta inválida! Digite apenas 'sim' ou 'nao'!!!")
-
 if __name__ == "__main__":
     gerenciador = GerenciadorTarefas()
     gerenciador.carregarEmArquivo()
@@ -56,16 +47,17 @@ if __name__ == "__main__":
                 input("Pressione Enter para continuar...")
                 
             case 3:
-                opc = simOuNao("\nDeseja conferir a lista de tarefas pendentes? [sim/nao]: ")
-                if opc == "sim":
-                    gerenciador.listarTarefasNaoConcluidas()
-                else:
-                    print()
+                if not gerenciador.temTarefasPendentes():
+                    print("\nNão há tarefas pendentes para concluir")
+                    input("\nPressione Enter para continuar...")
+                    continue
+
+                gerenciador.listarTarefasNaoConcluidas()
 
                 try:
                     indice = int(input("Qual tarefa deseja marcar como CONCLUÍDA? [de acordo com seu ID]: "))
                 except ValueError:
-                    print("\nERRO!!! Não é permido letras ou caracteres especiais!!!")
+                    print("\nERRO!!! Não é permitido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
                     input("\nPressione Enter para continuar...")                    
                     continue
@@ -78,16 +70,17 @@ if __name__ == "__main__":
                 input("\nPressione Enter para continuar...")
 
             case 4:
-                opc = simOuNao("\nDeseja conferir a lista de tarefas concluídas? [sim/nao]: ")
-                if opc == "sim":
-                    gerenciador.listarTarefasConcluidas()
-                else:
-                    print()
+                if not gerenciador.temTarefasConcluidas():
+                    print("\nNão há tarefas concluídas para desmarcar")
+                    input("\nPressione Enter para continuar...")
+                    continue
+
+                gerenciador.listarTarefasConcluidas()
 
                 try:
                     indice = int(input("Qual tarefa deseja DESMARCAR (tornar pendente)? [de acordo com seu ID]: "))
                 except ValueError:
-                    print("\nERRO!!! Não é permido letras ou caracteres especiais!!!")
+                    print("\nERRO!!! Não é permitido letras ou caracteres especiais!!!")
                     print("Por favor, digite apenas o número da tarefa")
                     input("\nPressione Enter para continuar...")                    
                     continue
@@ -100,11 +93,13 @@ if __name__ == "__main__":
                 input("\nPressione Enter para continuar...")                
 
             case 5:
-                opc = simOuNao("\nDeseja conferir a lista completa de tarefas? [sim/nao]: ")
-                if opc == "sim":
-                    gerenciador.listarTarefas()
-                else:
-                    print()
+                if gerenciador.estaVazio():
+                    print("\nA lista de tarefas está completamente vazia!")
+                    print("Não há o que excluir!")
+                    input("\nPressione Enter para continuar...")
+                    continue
+
+                gerenciador.listarTarefas()
 
                 print("O que deseja excluir?")
                 print("1. Apenas  uma tarefa específica (por ID)")
@@ -121,7 +116,7 @@ if __name__ == "__main__":
                     try:
                         indice = int(input("\nQual tarefa deseja excluir? [de acordo com seu índice]: "))
                     except ValueError:
-                        print("\nERRO!!! Não é permido letras ou caracteres especiais!!!")
+                        print("\nERRO!!! Não é permitido letras ou caracteres especiais!!!")
                         print("Por favor, digite apenas o número da tarefa")
                         input("\nPressione Enter para continuar...")
                         continue
