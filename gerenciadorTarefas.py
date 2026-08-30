@@ -98,6 +98,14 @@ class GerenciadorTarefas:
 
         return totalRemovidas
 
+    def temTarefasPendentes(self) -> bool:
+        return any(not tarefa.concluida for tarefa in self.tarefas)
+
+    def temTarefasConcluidas(self) -> bool:
+        return any(tarefa.concluida for tarefa in self.tarefas)
+
+    def estaVazio(self) -> bool:
+        return len(self.tarefas) == 0
 
     def salvarEmArquivo(self, caminhoArquivo="tarefas.json"):
         listaTraduzida = []
