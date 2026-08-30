@@ -41,11 +41,21 @@ class GerenciadorTarefas:
             print("O valor do índice está incorreto")
             return
 
-        tarefaConcluida = self.tarefas[indice]
-        tarefaConcluida.concluir()
+        tarefa = self.tarefas[indice]
+        tarefa.marcarComoConcluido()
 
-        return tarefaConcluida
+        return tarefa
 
+    def desmarcarTarefaViaIndice(self, indice):
+        if indice < 0 or indice >= len(self.tarefas):
+            print("O valor do índice está incorreto")
+            return
+    
+        tarefa = self.tarefas[indice]
+        tarefa.marcarComoPendente()
+
+        return tarefa
+    
     def removerTarefa(self, indice):
         if indice < 0 or indice >= len(self.tarefas):
             print("O valor do índice está incorreto")
