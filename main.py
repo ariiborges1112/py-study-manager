@@ -15,6 +15,13 @@ def exibirMenu():
     print("5. Excluir tarefa")
     print("6. Salvar e sair")
 
+def exibirSubMenu():
+    print("\n==== MENU DE GERENCIAMENTO===\n")
+    print("1. Adicionar nova tarefa")
+    print("2. Marcar tarefa como concluída")
+    print("3. Marcar tarefa como Pendente")
+    print("4. Excluir tarefa")
+
 if __name__ == "__main__":
     gerenciador = GerenciadorTarefas()
     gerenciador.carregarEmArquivo()
